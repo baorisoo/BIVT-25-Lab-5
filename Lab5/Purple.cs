@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace Lab5
@@ -10,7 +10,22 @@ namespace Lab5
             int[] answer = null;
 
             // code here
-
+            answer = new int[matrix.GetLength(1)];
+            int ind = 0;
+            
+            for (int i = 0; i < matrix.GetLength(1); i++)
+            {
+                int cnt = 0;
+                for (int j = 0; j < matrix.GetLength(0); j++)
+                {
+                    if (matrix[j, i] < 0)
+                    {
+                        cnt++;
+                    }
+                }
+                answer[ind] = cnt;
+                ind++;
+            }
             // end
 
             return answer;
@@ -19,7 +34,33 @@ namespace Lab5
         {
 
             // code here
+            
+            for (int i = 0; i < matrix.GetLength(0);i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    int[] a = new int[matrix.GetLength(1)];
+                    a[j] = matrix[i, j];
+                    int mn = int.MaxValue;
+                    int ind = 0;
+                    for (int k = 0; k < a.Length; k++)
+                    {
+                        if (a[k] < mn)
+                        {
+                            mn = a[k];
+                            ind = k;
+                        }
+                    }
+                    if (matrix[i, 0] == mn) continue;
+                    else
+                    {
+                        matrix[i, 0] = mn;
 
+                    }
+                        
+                }
+
+            }
             // end
 
         }
